@@ -25,6 +25,16 @@ import java.util.List;
 import java.util.Properties;
 
 /**
+* @program: TopProductTask
+* @description: 事实热度榜 -> 实现基于热度的推荐逻辑
+ * 通过Flink时间窗口机制,统计当前时间的实时热度,并将数据缓存在Redis中.
+ * 通过Flink的窗口机制计算实时热度,使用ListState保存一次热度榜
+ * 数据存储在redis中,按照时间戳存储list
+* @author: HarryCao
+* @create: 2019/12/18-17:08
+**/
+
+/**
  * 热门商品 -> redis
  *
  * @author XINZE
@@ -49,7 +59,7 @@ public class TopProductTask {
         Properties properties = Property.getKafkaProperties("topProuct");
         DataStreamSource<String> dataStream = env.addSource(new FlinkKafkaConsumer<String>("con", new SimpleStringSchema(), properties));
 
-        DataStream<TopProductEntity> topProduct = dataStream.map(new TopProductMapFunction()).
+        DataStream<TopProductEntity> topProduct = dataStream.map( new TopProductMapFunction()).
                 // 抽取时间戳做watermark 以 秒 为单位
                 assignTimestampsAndWatermarks(new AscendingTimestampExtractor<LogEntity>() {
                     @Override

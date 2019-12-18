@@ -10,6 +10,15 @@ import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer;
 import java.util.Properties;
 
 /**
+* @program: ProductProtaritTask
+* @description: 产品画像记录 -> 实现基于标签的推荐逻辑
+ * 用两个维度记录产品画像,一个是喜爱该产品的年龄段,另一个是性别
+ * 数据存储在Hbase的prod表
+* @author: HarryCao
+* @create: 2019/12/18-17:06
+**/
+
+/**
  * 产品画像 -> Hbase
  *
  * @author XINZE

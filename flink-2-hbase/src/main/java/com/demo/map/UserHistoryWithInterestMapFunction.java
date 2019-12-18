@@ -1,6 +1,13 @@
 
 package com.demo.map;
-
+/**
+* @program: UserHistoryWithInterestMapFunction
+* @description: 根据user_id分类后,每组数据有KeyValue_State（Action类型<action,time>）
+ * 如果两次操作时间差小于100s,记做一次兴趣事件，同时会在Hbase中保存times(兴趣幅度)次数的<user_id,product_id>
+ * 如果type为购买则state清空，重新开始记录state.
+* @author: HarryCao
+* @create: 2019/12/18-16:53
+**/
 import com.demo.client.HbaseClient;
 import com.demo.domain.LogEntity;
 import org.apache.flink.api.common.time.Time;
