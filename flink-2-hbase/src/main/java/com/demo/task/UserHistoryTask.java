@@ -1,5 +1,14 @@
 package com.demo.task;
 
+
+/**
+* @program: UserHistoryTask
+* @description: 用户-产品浏览历史 -> 实现基于协同过滤的推荐逻辑
+* @author: HarryCao
+* @create: 2019/12/18-16:20
+**/
+
+
 import com.demo.map.UserHistoryMapFunction;
 import com.demo.util.Property;
 import org.apache.flink.api.common.serialization.SimpleStringSchema;
