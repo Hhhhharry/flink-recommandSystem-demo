@@ -3,7 +3,7 @@ package com.demo.map;
 * @program: UserHistoryMapFunction
 * @description: 通过Flink去记录用户浏览过这个类目下的哪些产品, 为后面的基于Item的协同过滤做准备
  * 实时的记录用户的评分到Hbase中,为后续离线处理做准备.
- * 数据存储在Hbase的p_history表
+ * 数据存储在Hbase的tory表
 * @author: HarryCao
 * @create: 2019/12/18-16:23
 **/

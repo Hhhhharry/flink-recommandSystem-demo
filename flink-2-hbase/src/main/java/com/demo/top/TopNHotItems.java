@@ -36,6 +36,9 @@ public class TopNHotItems extends KeyedProcessFunction<Tuple, TopProductEntity, 
     public void processElement(TopProductEntity topProductEntity, Context context, Collector<List<String>> collector) throws Exception {
         itemState.add(topProductEntity);
         // 注册 windowEnd+1 的 EventTime Timer, 当触发时，说明收齐了属于windowEnd窗口的所有商品数据
+        /**
+         * 当time到达windowEnd+1时，进行OnTimer()操作
+         */
         context.timerService().registerEventTimeTimer(topProductEntity.getWindowEnd() + 1);
     }
 

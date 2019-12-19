@@ -68,6 +68,9 @@ public class TopProductTask {
                     }
                 })
                 // 按照productId 按滑动窗口
+                /**
+                 * slide time window 没隔5s,统计过去60s
+                 */
                 .keyBy("productId").timeWindow(Time.seconds(60),Time.seconds(5))
                 .aggregate(new CountAgg(), new WindowResultFunction())
                 .keyBy("windowEnd")

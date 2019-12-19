@@ -8,7 +8,16 @@ import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer;
 import org.apache.flink.streaming.util.serialization.SimpleStringSchema;
 
 import java.util.Properties;
-
+/**
+* @program: LogTask
+* @description: 日志导入
+ * 从Kafka接收的数据直接导入进Hbase事实表,
+ * 保存完整的日志log,日志中包含了用户Id,用户操作的产品id,操作时间,行为(如购买,点击,推荐等).
+ * 数据按时间窗口统计数据大屏需要的数据,返回前段展示
+ * 数据存储在Hbase的con表
+* @author: HarryCao
+* @create: 2019/12/19-9:59
+**/
 /**
  * 日志 -> Hbase
  *
