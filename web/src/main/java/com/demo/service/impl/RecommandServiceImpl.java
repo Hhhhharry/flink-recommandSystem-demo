@@ -68,7 +68,7 @@ public class RecommandServiceImpl implements RecommandService {
 					pWithScore.setRank(r.getRank());
 					rst.add(pWithScore);
 				}
-			} catch (IOException e) {
+			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		});
