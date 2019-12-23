@@ -29,13 +29,15 @@ public class RecommandServiceImpl implements RecommandService {
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@Autowired
-	UserScoreService userScoreService;
+	private UserScoreService userScoreService;
 	@Autowired
-	ProductService productService;
+	private ProductService productService;
 	@Autowired
-	ContactService contactService;
+	private ContactService contactService;
 	@Resource
 	private RedisClient redisClient;
+	@Resource
+	private HbaseClient hbaseClient;
 
 	private final static int TOP_SIZE = 10;   // 热度榜产品数
 
@@ -57,7 +59,7 @@ public class RecommandServiceImpl implements RecommandService {
 		randProduct.forEach(r -> {
 			try {
 				rst.add(r);
-				List<Map.Entry> ps = HbaseClient.getRow("ps", userId);
+				List<Map.Entry> ps = hbaseClient.getRow("ps", userId);
 				int end = ps.size() > 3 ? ps.size() : 3;
 				for (int i = 0; i < end; i++) {
 					Map.Entry entry = ps.get(i);
@@ -140,7 +142,7 @@ public class RecommandServiceImpl implements RecommandService {
 			List<Map.Entry> ps = new ArrayList<>();
 			//获取的产品list是已经排好序的,根据得分排序
 			try {
-				ps = HbaseClient.getRow(table, s);
+				ps = hbaseClient.getRow(table, s);
 				Collections.sort(ps,((o1, o2) -> -(new BigDecimal(o1.getValue().toString()).compareTo(new BigDecimal(o2.getValue().toString())))));
 			} catch (Exception e) {
 				logger.warn("Hbase中没有产品【{}】记录", s);

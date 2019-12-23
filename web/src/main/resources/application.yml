@@ -2,21 +2,29 @@
 
 spring:
   datasource:
-    druid:
-      : root
-      password: 123456
-      initial-size: 1
-      min-idle: 1
-      max-active: 20
-      test-on-borrow: true
-      driver-class-name: com.mysql.cj.jdbc.Driver
-      url: jdbc:mysql://localhost:3308/con?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&useSSL=false
+    url: jdbc:mysql://localhost:3308/con?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  #    druid:
+#      password: 123456
+#      initial-size: 1
+#      min-idle: 1
+#      max-active: 20
+#      test-on-borrow: true
+#      driver-class-name: com.mysql.cj.jdbc.Driver
+#      url: jdbc:mysql://localhost:3308/con?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&useSSL=false
+#      username: root
 
   hbase:
     zookeeper:
       quorum: zookeeper1
       property:
         clientPort: 2181
+
+  zookeeper:
+    znode:
+      parent: /hbase
 
   redis:
     database: 0
@@ -31,27 +39,27 @@ spring:
         min-idle: 0
     timeout: 500
 
-  kafka:
-    bootstrap-servers: 192.168.1.7:9092
+    kafka:
+      bootstrap-servers: 192.168.1.7:9092
 
-    producer:
-      key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      producer:
+        key-serializer: org.apache.kafka.common.serialization.StringSerializer
+        value-serializer: org.apache.kafka.common.serialization.StringSerializer
 
-      batch-size: 65536
-      buffer-memory: 524288
+        batch-size: 65536
+        buffer-memory: 524288
 
 
-    consumer:
-      group-id: 0
-      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      consumer:
+        group-id: 0
+        key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+        value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
 
 mybatis:
   mapper-locations: classpath:mapper/*.xml
-  type-aliases-package: com.demo.entity
-  tion:
-    map-underscore-to-camel-case: true
+  type-aliases-package: com.demo.domain
+#  tion:
+#    map-underscore-to-camel-case: true
 
 
 server:

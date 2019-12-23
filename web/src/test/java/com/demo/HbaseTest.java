@@ -21,6 +21,8 @@ public class HbaseTest {
 
     @Autowired
     UserScoreService userScoreService;
+    @Autowired
+    private HbaseClient hbaseClient;
 
     @Test
     public void testHbase() throws IOException {
@@ -30,12 +32,12 @@ public class HbaseTest {
 
     @Test
     public void testHbaseClient() throws IOException {
-        String data = HbaseClient.getData("user", "1", "color", "red");
+        String data = hbaseClient.getData("user", "1", "color", "red");
         System.out.println(data);
     }
 
     @Test
     public void testCreateTable() throws IOException {
-        HbaseClient.createTable("test","test01");
+        hbaseClient.createTable("test","test01");
     }
 }

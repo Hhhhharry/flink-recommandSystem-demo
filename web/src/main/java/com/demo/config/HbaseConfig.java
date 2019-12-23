@@ -1,0 +1,35 @@
+package com.demo.config;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.data.hadoop.hbase.HbaseTemplate;
+
+/**
+ * @program: web->HbaseConfig
+ * @description:
+ * @author: HarryCao
+ * @create: 2019-12-23 15:01
+ **/
+@Configuration
+public class HbaseConfig {
+
+    @Value("${spring.hbase.zookeeper.quorum}")
+    private String zookeeperQuorum;
+
+    @Value("${spring.hbase.zookeeper.property.clientPort}")
+    private String clientPort;
+
+    @Value("${spring.zookeeper.znode.parent}")
+    private String znodeParent;
+
+    @Bean
+    public HbaseTemplate hbaseTemplate() {
+        org.apache.hadoop.conf.Configuration conf = new org.apache.hadoop.conf.Configuration();
+        conf.set("spring.hbase.zookeeper.quorum", zookeeperQuorum);
+        conf.set("hbase.zookeeper.property.clientPort", clientPort);
+        conf.set("zookeeper.znode.parent", znodeParent);
+        return new HbaseTemplate(conf);
+    }
+
+}

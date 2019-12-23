@@ -10,6 +10,7 @@ import com.demo.service.UserScoreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +22,10 @@ import java.util.List;
 public class UserScoreServiceImpl implements UserScoreService {
 
     private RedisClient redisClient = new RedisClient();
+    @Resource
+    private HbaseClient hbaseClient;
+    //private HbaseClient hbaseClient = new HbaseClient();
+
     @Autowired
     ProductService productService;
     /**
@@ -118,7 +123,7 @@ public class UserScoreServiceImpl implements UserScoreService {
 
 
     private int getValue(String userId, String valueName) throws IOException {
-        String value = HbaseClient.getData("user", userId, "style", valueName);
+        String value = hbaseClient.getData("user", userId, "style", valueName);
         int res = 0;
         if (null != value){
             res = Integer.valueOf(value);

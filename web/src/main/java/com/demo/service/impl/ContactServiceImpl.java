@@ -12,7 +12,7 @@ import java.util.List;
 public class ContactServiceImpl implements ContactService {
 
     @Autowired
-    ContactDao contactDao;
+    private ContactDao contactDao;
 
     @Override
     public List<ContactEntity> selectByIds(List<String> ids) {
