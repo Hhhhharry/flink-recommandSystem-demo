@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -38,7 +39,10 @@ public class BackstageController {
         // 获取 top 榜单数据
         List<String> topList = redisClient.getTopList(topSize);
         System.out.println(topList);
-        List<ContactEntity> topProduct = contactService.selectByIds(topList);
+        //List<ContactEntity> topProduct = contactService.selectByIds(topList);
+        List<ContactEntity> topProduct = new ArrayList<>();
+        topProduct.add(contactService.selectById(topList.get(1)));
+        System.out.println(topProduct);
         model.addAttribute("topProduct", topProduct);
         return "index";
     }
@@ -53,7 +57,7 @@ public class BackstageController {
         // 获取 1小时内接入量
         String meter = redisClient.getMeter();
 
-        //String meter = "69";
+
         return ResultUtils.success(meter);
     }
 }

@@ -8,6 +8,15 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
 
+  thymeleaf:
+    mode: HTML5
+    encoding: UTF-8
+    cache: false
+#    就少了个斜杠页面显示不出来
+    prefix: classpath:/templates/
+    servlet:
+      content-type: text/html
+
   hbase:
     zookeeper:
       quorum: zookeeper1

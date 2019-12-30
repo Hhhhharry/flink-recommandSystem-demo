@@ -46,7 +46,7 @@
     </div>
 
 
-    </div>
+</div>
 
 </div>
 <script th:inline="javascript">
@@ -54,7 +54,7 @@
         var myChart = echarts.init(document.getElementById('meter'));
         $.ajax({
                 type: "get",
-                url: "127.0.0.1/meter",
+                url: "/meter",
                 dataType: "json",        //返回数据形式为json
                 success: function (result) {
                     //请求成功时执行该函数内容，result即为服务器返回的json对]象
@@ -91,5 +91,6 @@
     });
 </script>
 </body>
+
 
 </html>

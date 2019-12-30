@@ -1,5 +1,6 @@
 package com.demo.domain;
 
+
 public class ContactEntity {
 
     private int id;
