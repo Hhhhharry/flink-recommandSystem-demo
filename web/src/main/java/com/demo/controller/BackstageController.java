@@ -39,10 +39,10 @@ public class BackstageController {
         // 获取 top 榜单数据
         List<String> topList = redisClient.getTopList(topSize);
         System.out.println(topList);
-        //List<ContactEntity> topProduct = contactService.selectByIds(topList);
-        List<ContactEntity> topProduct = new ArrayList<>();
-        topProduct.add(contactService.selectById(topList.get(1)));
-        System.out.println(topProduct);
+        List<ContactEntity> topProduct = contactService.selectByIds(topList);
+        //List<ContactEntity> topProduct = new ArrayList<>();
+        //topProduct.add(contactService.selectById(topList.get(1)));
+        //System.out.println(topProduct);
         model.addAttribute("topProduct", topProduct);
         return "index";
     }

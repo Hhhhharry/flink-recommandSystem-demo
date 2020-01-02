@@ -21,17 +21,17 @@
                 <div class="panel-body">
                     <div class="row" th:each="pro : ${topProduct}" style=" border: 3px solid #ffe9bf">
                         <div class="col-sm-3">
-                            <img style="width: 100px;height: 100px;" th:src="${pro.picUrl}"/>
+                            <img style="width: 100px;height: 100px;" th:src="${pro.pic_Url}"/>
                         </div>
                         <div class="col-sm-3">
                             <div class="row">
                                 <text><strong>id:</strong></text>
                                 <text th:text="${pro.id}"></text>
                                 <text><strong>brand:</strong></text>
-                                <text th:text="${pro.brandName}"></text>
+                                <text th:text="${pro.brand_Name}"></text>
                             </div>
                             <div class="row">
-                                <text th:text="${pro.itemName}"></text>
+                                <text th:text="${pro.item_Name}"></text>
                             </div>
                         </div>
                     </div>

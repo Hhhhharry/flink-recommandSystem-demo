@@ -4,11 +4,11 @@ package com.demo.domain;
 public class ContactEntity {
 
     private int id;
-    private String picUrl;
-    private String itemName;
-    private String subName;
-    private double martPrice;
-    private String brandName;
+    private String pic_Url;
+    private String item_Name;
+    private String sub_Name;
+    private double mart_Price;
+    private String brand_Name;
 
     public int getId() {
         return id;
@@ -18,55 +18,55 @@ public class ContactEntity {
         this.id = id;
     }
 
-    public String getPicUrl() {
-        return picUrl;
+    public String getPic_Url() {
+        return pic_Url;
     }
 
-    public void setPicUrl(String picUrl) {
-        this.picUrl = picUrl;
+    public void setPic_Url(String pic_Url) {
+        this.pic_Url = pic_Url;
     }
 
-    public String getItemName() {
-        return itemName;
+    public String getItem_Name() {
+        return item_Name;
     }
 
-    public void setItemName(String itemName) {
-        this.itemName = itemName;
+    public void setItem_Name(String item_Name) {
+        this.item_Name = item_Name;
     }
 
-    public String getSubName() {
-        return subName;
+    public String getSub_Name() {
+        return sub_Name;
     }
 
-    public void setSubName(String subName) {
-        this.subName = subName;
+    public void setSub_Name(String sub_Name) {
+        this.sub_Name = sub_Name;
     }
 
-    public double getMartPrice() {
-        return martPrice;
+    public double getMart_Price() {
+        return mart_Price;
     }
 
-    public void setMartPrice(double martPrice) {
-        this.martPrice = martPrice;
+    public void setMart_Price(double mart_Price) {
+        this.mart_Price = mart_Price;
     }
 
-    public String getBrandName() {
-        return brandName;
+    public String getBrand_Name() {
+        return brand_Name;
     }
 
-    public void setBrandName(String brandName) {
-        this.brandName = brandName;
+    public void setBrand_Name(String brand_Name) {
+        this.brand_Name = brand_Name;
     }
 
     @Override
     public String toString() {
         return "ContactEntity{" +
                 "id=" + id +
-                ", picUrl='" + picUrl + '\'' +
-                ", itemName='" + itemName + '\'' +
-                ", subName='" + subName + '\'' +
-                ", martPrice=" + martPrice +
-                ", brandName='" + brandName + '\'' +
+                ", picUrl='" + pic_Url + '\'' +
+                ", itemName='" + item_Name + '\'' +
+                ", subName='" + sub_Name + '\'' +
+                ", martPrice=" + mart_Price +
+                ", brandName='" + brand_Name + '\'' +
                 '}';
     }
 }
