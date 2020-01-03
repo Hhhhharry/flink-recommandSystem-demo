@@ -1,27 +1,28 @@
 #!/bin/bash
-function create_kafka_topic {
-    $KAFKA_HOME/bin/kafka-topics.sh --create --zookeeper zookeeper:2181 --replication-factor 1 --partitions 1 --topic $1
+function create_kafka_topic{
+/opt/kafka/bin/kafka-topics.sh --create --zookeeper zookeeper:2181 --replication-factor 1 --partitions 1 --topic 'log'
 }
-function send_messages_to_kafka {
-    msg=$(generator_message)
-    echo -e $msg | $KAFKA_HOME/bin/kafka-console-producer.sh --broker-list kafka:9093 --topic $TOPIC
+function send_messages_to_kafka{
+ msg=$(generator_message)
+ echo -e $msg | /opt/kafka/bin/kafka-console-producer.sh --broker-list kafka:9093 --topic $TOPIC
 }
-function rand {
-    min=$1
-    max=$(($2-$min+1))
-    num=$(date +%s%N)
-    echo $(($num%$max+$min))
+function rand{
+ min=$1
+ max=$(($2-$min+1))
+ num=$(date +%s%N)
+ echo $(($num%$max+$min))
 }
-function generator_message {
-    uid=$(rand 1 999);
-    product_id=$(rand 1 999);
-    timestamp=`date '+%s'`;
-    action=$(rand 1 3);
-    msg=$uid","$product_id","$timestamp","$action;
-    echo $msg
+function generator_message{
+ uid=$(rand 1 999);
+ product_id=$(rand 1 999);
+ timestamp=`date '+%s'`;
+ action=$(rand 1 3);
+ msg=$uid","$product_id","$timestamp","$action;
+ echo $msg
 }
 
-TOPIC="log"
+
+TOPIC="con"
 create_kafka_topic $TOPIC
 while true
 do

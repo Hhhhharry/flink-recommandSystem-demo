@@ -19,6 +19,7 @@ public class HbaseClient {
         conf.set("hbase.zookeeper.quorum", Property.getStrValue("hbase.zookeeper.quorum"));
         conf.set("hbase.client.scanner.timeout.period", Property.getStrValue("hbase.client.scanner.timeout.period"));
         conf.set("hbase.rpc.timeout", Property.getStrValue("hbase.rpc.timeout"));
+        //conf.set("hadoop.home.dir", "D:/Software/hadoop-2.7.7");
         try {
             conn = ConnectionFactory.createConnection(conf);
             admin = conn.getAdmin();

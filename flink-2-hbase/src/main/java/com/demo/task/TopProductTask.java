@@ -57,7 +57,7 @@ public class TopProductTask {
 				.build();
 
         Properties properties = Property.getKafkaProperties("topProuct");
-        DataStreamSource<String> dataStream = env.addSource(new FlinkKafkaConsumer<String>("con", new SimpleStringSchema(), properties));
+        DataStreamSource<String> dataStream = env.addSource(new FlinkKafkaConsumer<String>("g", new SimpleStringSchema(), properties));
 
         DataStream<TopProductEntity> topProduct = dataStream.map( new TopProductMapFunction()).
                 // 抽取时间戳做watermark 以 秒 为单位

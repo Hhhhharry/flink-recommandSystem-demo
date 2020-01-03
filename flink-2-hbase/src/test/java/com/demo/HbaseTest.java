@@ -14,20 +14,20 @@ import java.io.IOException;
 public class HbaseTest {
 
 
-	@Test
-	public void testHbase() throws IOException {
-		String data = HbaseClient.getData("user", "1", "color", "red");
-		System.out.println(data);
-	}
-
-	@Test
-	public void testAllKey() throws IOException {
-		Scan scan = new Scan();
-		Table table = HbaseClient.conn.getTable(TableName.valueOf("p_history"));
-		ResultScanner scanner = table.getScanner(scan);
-		for (Result r : scanner) {
-			System.out.println(new String(r.getRow()));
-		}
-
-	}
+//	@Test
+//	public void testHbase() throws IOException {
+//		String data = HbaseClient.getData("user", "1", "color", "red");
+//		System.out.println(data);
+//	}
+//
+//	@Test
+//	public void testAllKey() throws IOException {
+//		Scan scan = new Scan();
+//		Table table = HbaseClient.conn.getTable(TableName.valueOf("user"));
+//		ResultScanner scanner = table.getScanner(scan);
+//		for (Result r : scanner) {
+//			System.out.println(new String(r.getRow()));
+//		}
+//
+//	}
 }
