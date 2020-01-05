@@ -82,24 +82,17 @@
       <version>1.7.21</version>
       <scope>compile</scope>
     </dependency>
-    <dependency>
-      <groupId>jdk.tools</groupId>
-      <artifactId>jdk.tools</artifactId>
-      <version>1.6</version>
-      <scope>system</scope>
-      <systemPath>${JAVA_HOME}/lib/tools.jar</systemPath>
-    </dependency>
   </dependencies>
   <properties>
-    <flink.version>1.9.1</flink.version>
-    <JAVA_HOME>D:\Java\jdk-12.0.2\jdk</JAVA_HOME>
-    <encoding>UTF-8</encoding>
-    <java.version>1.8</java.version>
-    <maven.compiler.target>1.8</maven.compiler.target>
     <scala.binary.version>2.11</scala.binary.version>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <scala.version>2.11.12</scala.version>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <java.version>1.8</java.version>
     <maven.compiler.source>1.8</maven.compiler.source>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <JAVA_HOME>D:\Java\jdk-12.0.2\jdk</JAVA_HOME>
+    <scala.version>2.11.12</scala.version>
+    <encoding>UTF-8</encoding>
+    <flink.version>1.9.1</flink.version>
   </properties>
 </project>
 
